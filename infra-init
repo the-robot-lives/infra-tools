@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# =============================================================================
+# utils/infra-init
+# Infrastructure — Developer setup and health check tool
+#
+# Usage:
+#   infra-init terraform      Set up Terraform (provider plugin + init)
+#   infra-init repos          Hydrate git submodules
+#   infra-init all            Run repos then terraform
+#   infra-init import         Batch import existing AWS infra via Terraformer (skips already-imported)
+#   infra-init import --force Re-import all groups even if already present
+#   infra-init cleanup        Strip bad Terraformer attrs + AWS CLI spot-checks
+#   infra-init state-upgrade  Migrate Terraformer legacy provider state to TF 1.x
+#   infra-init doctor         Verify everything is configured and healthy
+#   infra-init --help         Show this help
+# =============================================================================
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+for _lib in "$SCRIPT_DIR/../k8-lib/"*.sh; do source "$_lib"; done
+
+# =============================================================================
+# DISPATCH
+# =============================================================================
+case "${1:-}" in
+  terraform)      cmd_terraform ;;
+  repos)          cmd_repos ;;
+  all)            cmd_all ;;
+  import)         cmd_import ;;
+  cleanup)        cmd_cleanup ;;
+  state-upgrade)  cmd_state_upgrade ;;
+  doctor)         cmd_doctor ;;
+  --help|-h)      cmd_help ;;
+  "")
+    echo -e "\n  ${FAIL} No command given."
+    cmd_help
+    exit 1
+    ;;
+  *)
+    echo -e "\n  ${FAIL} Unknown command: $1"
+    cmd_help
+    exit 1
+    ;;
+esac
