@@ -18,7 +18,9 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-for _lib in "$SCRIPT_DIR/../k8-lib/"*.sh; do source "$_lib"; done
+K8_LIB_DIR="${K8_LIB_DIR:-$(cd "$SCRIPT_DIR/../../k8-lib" 2>/dev/null && pwd || echo "${HOME}/.local/share/k8-lib")}"
+INFRA_ROOT="${INFRA_ROOT:-$(pwd)}"
+for _lib in "$K8_LIB_DIR/bin/"*.sh; do source "$_lib"; done
 
 # =============================================================================
 # DISPATCH
