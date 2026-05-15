@@ -11,8 +11,8 @@ INFRA_ROOT="${INFRA_ROOT:-$(pwd)}"
 POLICY_FILE="$INFRA_ROOT/terraform/production/imported/iam/terraformer-import-policy.json"
 
 PROFILE="${PROFILE:-${K8_AWS_PROFILE:-terraformer}}"
-USER_NAME="terraformer-import"
-POLICY_NAME="TerraformerImportPolicy"
+USER_NAME="${K8_TF_IMPORT_USER:-terraformer-import}"
+POLICY_NAME="${K8_TF_IMPORT_POLICY_NAME:-TerraformerImportPolicy}"
 DRY_RUN=false
 
 while [[ $# -gt 0 ]]; do

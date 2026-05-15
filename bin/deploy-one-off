@@ -62,15 +62,16 @@ NS="${K8_NAMESPACE:-default}"
 echo "" && echo "=== PLACEMENT VERIFICATION ===" &&
 echo "--- MANAGED NODES ---" &&
 NODE_LABEL="${K8_NODE_LABEL:-node-group=eks-managed}" &&
+EXCLUDE_PATTERN="${K8_PLACEMENT_EXCLUDE_PATTERN:-aws-node|kube-proxy|ebs-csi-node|efs-csi-node|signoz-node-agent|nginx-ingress}" &&
 for node in $(kubectl get nodes -l "$NODE_LABEL" -o name); do
   echo "$(echo $node | sed 's|node/||'):"
-  kubectl get pods --all-namespaces --field-selector spec.nodeName=$(echo $node | sed 's|node/||') --no-headers -o custom-columns='  NS:.metadata.namespace,POD:.metadata.name' | grep -v -E "aws-node|kube-proxy|ebs-csi-node|efs-csi-node|signoz-node-agent|nginx-ingress"
+  kubectl get pods --all-namespaces --field-selector spec.nodeName=$(echo $node | sed 's|node/||') --no-headers -o custom-columns='  NS:.metadata.namespace,POD:.metadata.name' | grep -v -E "$EXCLUDE_PATTERN"
 done &&
 echo "--- KARPENTER NODES ---" &&
 for node in $(kubectl get nodes -L karpenter.sh/nodepool --no-headers | grep -v '<none>' | awk '{print $1}'); do
   pool=$(kubectl get node $node -o jsonpath='{.metadata.labels.karpenter\.sh/nodepool}')
   cap=$(kubectl get node $node -o jsonpath='{.metadata.labels.karpenter\.sh/capacity-type}')
   echo "$node ($pool, $cap):"
-  kubectl get pods --all-namespaces --field-selector spec.nodeName=$node --no-headers -o custom-columns='  NS:.metadata.namespace,POD:.metadata.name' | grep -v -E "aws-node|kube-proxy|ebs-csi-node|efs-csi-node|signoz-node-agent|nginx-ingress"
+  kubectl get pods --all-namespaces --field-selector spec.nodeName=$node --no-headers -o custom-columns='  NS:.metadata.namespace,POD:.metadata.name' | grep -v -E "$EXCLUDE_PATTERN"
 done &&
 echo "" && echo "Deployment complete"
