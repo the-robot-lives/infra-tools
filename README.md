@@ -17,14 +17,27 @@ make install    # Installs infra-init, deploy-one-off, open-dashboard, add-impor
 
 ## Configuration
 
-### Required (in config.env)
+All configuration lives in `k8-util-config.yaml` with credentials in `.k8-secrets.yaml` (see [k8-lib README](../k8-lib/README.md) for setup). Every tool accepts `--config <path>` to specify an alternative config file.
 
-```bash
-K8_AWS_PROFILE="terraformer"
-K8_AWS_ACCOUNT_ID="123456789012"
-K8_AWS_REGION="us-east-1"
-K8_TF_DIR="/path/to/terraform"
-K8_TF_STATE_BUCKET="my-tf-state"
+### Relevant Sections
+
+In `k8-util-config.yaml`:
+
+```yaml
+aws:
+  profile: terraformer
+  region: us-east-1
+paths:
+  terraform_dir: terraform
+terraform:
+  state_bucket: my-tf-state
+```
+
+In `.k8-secrets.yaml` (gitignored):
+
+```yaml
+aws:
+  account_id: "123456789012"
 ```
 
 ## Tools
