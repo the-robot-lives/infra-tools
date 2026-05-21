@@ -5,7 +5,7 @@ Multi-command infrastructure initialization, one-off deployments, and health che
 ## Installation
 
 ```bash
-make install    # Installs infra-init, deploy-one-off, open-dashboard, add-import-permissions to ~/.local/bin
+make install    # Installs infra-init, deploy-one-off, deploy-service, open-dashboard, add-import-permissions to ~/.local/bin
 ```
 
 ## Prerequisites
@@ -50,6 +50,7 @@ aws:
 | `infra-init doctor` | Health check all dependencies |
 | `infra-init import` | Batch AWS import via Terraformer |
 | `deploy-one-off` | One-off deployment |
+| `deploy-service` | Build → push → chart bump → helm upgrade pipeline |
 | `open-dashboard` | Open monitoring dashboard |
 | `add-import-permissions` | Set up IAM permissions for Terraformer |
 
@@ -62,3 +63,19 @@ infra-init terraform            # Terraform init only
 infra-init import               # Import existing AWS resources
 infra-init import --force       # Re-import all groups
 ```
+
+### deploy-service
+
+Headless build → push → values.yaml bump → helm upgrade pipeline. Reads deploy targets from `project.yaml` `helm:` blocks — no CLI mapping needed.
+
+```bash
+deploy-service my-image                        # Build, push, bump, deploy
+deploy-service my-image --dry-run              # Preview planned actions
+deploy-service my-image --skip-deploy          # Build + bump only, no helm upgrade
+deploy-service my-image --tag v2.1.0           # Override the tag
+deploy-service my-image --no-cache             # Force fresh build
+deploy-service backend frontend                # Batch: build both, single helm upgrade
+deploy-service codefre.sh/backend              # Composite project target
+```
+
+Requires `docker-build`, `helm-upgrade`, `yq` on PATH. Uses `paths.projects_dir` from `k8-util-config.yaml` to discover `project.yaml` files.
