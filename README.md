@@ -17,11 +17,11 @@ make install    # Installs infra-init, deploy-one-off, deploy-service, open-dash
 
 ## Configuration
 
-All configuration lives in `k8-util-config.yaml` with credentials in `.k8-secrets.yaml` (see [k8-lib README](../k8-lib/README.md) for setup). Every tool accepts `--config <path>` to specify an alternative config file.
+All configuration lives in `infra-config.yaml` with credentials in `.envrc.k8.dc` (see [k8-lib README](../k8-lib/README.md) for setup). Every tool accepts `--config <path>` to specify an alternative config file.
 
 ### Relevant Sections
 
-In `k8-util-config.yaml`:
+In `infra-config.yaml`:
 
 ```yaml
 aws:
@@ -33,11 +33,11 @@ terraform:
   state_bucket: my-tf-state
 ```
 
-In `.k8-secrets.yaml` (gitignored):
+In `.envrc.k8.dc` secrets layer:
 
-```yaml
-aws:
-  account_id: "123456789012"
+```bash
+# In .envrc.k8.dc
+export K8_AWS_ACCOUNT_ID="123456789012"
 ```
 
 ## Tools
@@ -66,7 +66,7 @@ infra-init import --force       # Re-import all groups
 
 ### deploy-service
 
-Headless build → push → values.yaml bump → helm upgrade pipeline. Reads deploy targets from `project.yaml` `helm:` blocks — no CLI mapping needed.
+Headless build → push → values.yaml bump → helm upgrade pipeline. Reads deploy targets from `infra-config.yaml` project `helm:` blocks — no CLI mapping needed.
 
 ```bash
 deploy-service my-image                        # Build, push, bump, deploy
@@ -78,4 +78,4 @@ deploy-service backend frontend                # Batch: build both, single helm 
 deploy-service codefre.sh/backend              # Composite project target
 ```
 
-Requires `docker-build`, `helm-upgrade`, `yq` on PATH. Uses `paths.projects_dir` from `k8-util-config.yaml` to discover `project.yaml` files.
+Requires `docker-build`, `helm-upgrade`, `yq` on PATH. Uses `paths.projects_dir` from `infra-config.yaml` to discover project configurations.
