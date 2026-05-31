@@ -35,6 +35,7 @@ done
 unset _k8_arg _k8_prev
 
 for _lib in "$K8_LIB_DIR/bin/"*.sh; do source "$_lib"; done
+_k8_check_assist "$0" "$@"
 
 # =============================================================================
 # DISPATCH
