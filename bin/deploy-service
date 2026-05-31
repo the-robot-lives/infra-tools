@@ -31,6 +31,10 @@ set -euo pipefail
 #
 # Flags:
 #   --tag TAG      Override the tag (rejected if >1 image-key given).
+#   --stage        Set BUILD_ENV=stage.
+#   --prod         Set BUILD_ENV=prod.
+#   --dev          Set BUILD_ENV=dev.
+#   --env ENV      Set BUILD_ENV to a custom value.
 #   --no-cache     Pass through to docker-build for every image.
 #   --skip-build   Skip build/push (images must already exist at their tags).
 #   --skip-deploy  Build (+ bump values) only; no helm-upgrade.
@@ -84,6 +88,11 @@ while [[ $# -gt 0 ]]; do
     --no-cache)     FLAG_NO_CACHE=true; shift ;;
     --skip-build)   FLAG_SKIP_BUILD=true; shift ;;
     --skip-deploy)  FLAG_SKIP_DEPLOY=true; shift ;;
+    --stage)        export BUILD_ENV=stage; shift ;;
+    --prod)         export BUILD_ENV=prod; shift ;;
+    --dev)          export BUILD_ENV=dev; shift ;;
+    --env=*)        export BUILD_ENV="${1#--env=}"; shift ;;
+    --env)          export BUILD_ENV="$2"; shift 2 ;;
     --dry-run)      FLAG_DRY_RUN=true; shift ;;
     --config=*)     shift ;;
     --config)       shift 2 ;;
