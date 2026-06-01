@@ -3,11 +3,12 @@ set -euo pipefail
 # =============================================================================
 # deploy-service — Headless build → push → chart bump → helm upgrade.
 #
-# Reads each image's deploy target from its owning project.yaml — no CLI
-# mapping needed. An image declares where it ships via:
+# Reads each image's deploy target from the unified .infra-config.yaml
+# (.project section) — no CLI mapping needed. An image declares where it
+# ships via:
 #
-#   # docker.images[].helm         (flat projects)
-#   # projects[].services[].helm   (composite projects)
+#   # project.docker.images[].helm          (flat / standalone images)
+#   # project.projects[].services[].helm    (composite projects)
 #   helm:
 #     chart_path:  helm/<domain>/<chart>      # dir containing values.yaml
 #     values_path: .some.yq.path              # yq target inside values.yaml
@@ -39,7 +40,7 @@ set -euo pipefail
 #   --skip-build   Skip build/push (images must already exist at their tags).
 #   --skip-deploy  Build (+ bump values) only; no helm-upgrade.
 #   --dry-run      Print planned actions; touch nothing.
-#   --config PATH  Path to k8-util-config.yaml.
+#   --config PATH  Path to .infra-config.yaml.
 #   -v, --verbose  Show sub-commands before executing.
 #   -h, --help     Show this help.
 #
