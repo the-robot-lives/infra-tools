@@ -14,12 +14,16 @@ single source of truth, resolved by k8-lib's config-resolver (`--config` flag �
 → `INFRA_ROOT` → git-root walk) and merged with per-project `project.yaml` files. Scalar
 AWS/account values come from `.envrc.k8.dc` / `K8_*` environment variables.
 
+→ *Config shapes, flag grammar, env vars, and the push-state ledger are documented in
+[PROJ-SCHEMA.md](PROJ-SCHEMA.md) (no DB — the project's "schema" is its config artifacts)*
+
 ## System Diagram
 
 ```mermaid
 graph TB
     subgraph "infra-utils"
         M[Makefile] -->|installs to ~/.local/bin| BIN[bin/]
+        M -->|installs bash+zsh| COMP[completions/]
         BIN --> DS[deploy-service]
         BIN --> IC[infra-config]
         BIN --> II[infra-init]
@@ -55,7 +59,8 @@ graph TB
 | `bin/deploy-one-off` | Template (not runnable as-is) documenting canonical ordered Helm recovery/bootstrap sequence (infra → stateful → apps → verify) |
 | `bin/open-dashboard` | `kubectl port-forward` + browser-open for monitoring dashboards; `K8_{TOOL}_NS` / `K8_{TOOL}_SVC` overrides |
 | `bin/add-import-permissions` | Applies canonical Terraformer IAM policy JSON to the `terraformer-import` AWS user (`--dry-run`, profile fallback chain) |
-| `Makefile` | `make install` copies the six scripts to `INSTALL_DIR` (default `~/.local/bin`) |
+| `Makefile` | `make install` copies the six scripts to `INSTALL_DIR` (default `~/.local/bin`) and installs bash/zsh completions for `deploy-service` + `infra-config` |
+| `completions/` | bash-completion + zsh completion scripts shipped alongside the CLIs |
 
 ## deploy-service Pipeline
 
@@ -92,3 +97,11 @@ discoverable by `helm-upgrade` (`paths.helm_dir` / `helm_scan_dirs` / `chart_pat
 - **`--assist` AI help**: scripts hook k8-lib `assist.sh` for AI-assisted usage questions
 - **Environment-driven overrides**: `K8_*` variables override namespaces, services,
   profiles, and lib location with sensible defaults
+
+## Documentation Suite
+
+`docs/` follows the four-doc convention: ARCH (this file + `arch/scripts.md` per-script
+detail), LAYOUT (`PROJ-LAYOUT.md` + summary), SCHEMA (`PROJ-SCHEMA.md` — config-artifact
+reference, no DB), FAQ (`PROJ-FAQ.md` + `faq/*.md` why/when/comparison answers), and
+HOWTO (`PROJ-HOWTO.md` + `howto/*.md` task guides). Summaries (`*.summary.md`) accompany
+each for quick agent/tool reference.
