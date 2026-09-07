@@ -1,10 +1,11 @@
 # infra-utils — Architecture Summary
 
 Terminal utility package of six standalone bash CLIs installed flat to `~/.local/bin` via
-`make install` (repo-wide `make install-utilities`), sharing helpers from k8-lib
-(`~/.local/share/k8-lib`). Config source of truth is the repo-root `.infra-config.yaml`
-(k8-lib config-resolver, merged with per-project `project.yaml`); scalars via
-`.envrc.k8.dc` / `K8_*` env vars.
+`make install` (repo-wide `make install-utilities`, which also installs bash/zsh shell
+completions from `completions/`), sharing helpers from k8-lib (`~/.local/share/k8-lib`).
+Config source of truth is the repo-root `.infra-config.yaml` (k8-lib config-resolver,
+merged with per-project `project.yaml`); scalars via `.envrc.k8.dc` / `K8_*` env vars.
+Config shapes and flag grammar: `docs/PROJ-SCHEMA.md` (no DB — config artifacts are the schema).
 
 Components: `deploy-service` (release pipeline: image key → `helm:` stanza → docker-build
 multi-arch push with edge-tag promotion → yq bump of chart values.yaml → one helm-upgrade
