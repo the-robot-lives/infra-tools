@@ -1,5 +1,7 @@
 # CLAUDE.md — infra-utils
 
+<!-- 〚📁:a2ad7525-a415-526b-963f-808a328f8355〛 CLAUDE :: Agent conventions - worktree/branch rules and monorepo pointers -->
+
 Infra ops helper scripts; see bin/ and README.md for the command inventory. Coupled to trl-infra .infra-config.yaml + terraform/; shares k8-lib.
 
 

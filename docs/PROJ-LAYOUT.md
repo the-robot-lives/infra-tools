@@ -1,5 +1,7 @@
 # Project Layout
 
+<!-- 〚📁:4191ab08-ebeb-5020-8e97-c5e2a7bf0550〛 PROJ-LAYOUT :: Repo layout map and installed locations -->
+
 `infra-utils` is a terminal utility package: infrastructure bootstrap helpers plus the
 `deploy-service` release pipeline (build → push → values.yaml bump → helm upgrade).
 Scripts install to `~/.local/bin` via `make install` (shell completions install alongside)

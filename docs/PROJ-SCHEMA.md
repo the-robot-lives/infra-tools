@@ -1,5 +1,7 @@
 # infra-utils — Schema
 
+<!-- 〚📁:af6a7a52-00a1-5635-9516-7e11c3afd8c8〛 PROJ-SCHEMA :: Config-artifact schema reference - no persistence layer -->
+
 > **No persistence layer.** This package has **no database, no SQL schema, and no
 > Liquibase changelogs** — it is a set of standalone bash CLIs. There are no tables,
 > columns, or ERDs to document. The "schema" of this project is the set of

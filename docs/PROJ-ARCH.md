@@ -1,5 +1,7 @@
 # infra-utils — Architecture
 
+<!-- 〚📁:ec51fbcd-2e90-5920-ae4c-510bb8bb3f4f〛 PROJ-ARCH :: Architecture overview - components, deploy pipeline, key decisions -->
+
 ## Overview
 
 `infra-utils` is a terminal utility package: six standalone bash CLIs for infrastructure
