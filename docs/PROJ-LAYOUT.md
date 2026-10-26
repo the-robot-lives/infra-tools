@@ -30,6 +30,10 @@ infra-utils/
 │   ├── PROJ-HOWTO.summary.md     #   How-to quick reference
 │   ├── PROJ-LAYOUT.md            #   This file
 │   ├── PROJ-LAYOUT.summary.md    #   Layout quick reference (keep in sync)
+│   ├── PROJ-SCHEMA.md            #   Config-artifact schema reference (no DB)
+│   ├── PROJ-SCHEMA.summary.md    #   Schema quick reference
+│   ├── THREAT-MODEL.md           #   Threat model (attack surface, vulnerability register)
+│   ├── THREAT-MODEL.summary.md   #   Threat-model quick reference
 │   ├── arch/
 │   │   └── scripts.md            #   Detailed per-script architecture breakdown
 │   ├── faq/                      #   Expanded FAQ answers
@@ -40,7 +44,8 @@ infra-utils/
 │       ├── terraformer-import.md             # Full AWS import walkthrough
 │       ├── troubleshoot-deploy-service.md    # Common deploy-service failure decoding
 │       └── wire-new-project.md               # Register a project + Helm wiring for deploy-service
-├── .gitignore                    # Ignores editor swap files, .env, .envrc.local
+├── .meta/                        # Doc-pointer store (.meta/pointers.yaml — marker identities)
+├── .gitignore                    # Ignores editor swap files, .env, .envrc.local, .claude/worktrees/
 ├── CHANGELOG.md                  # Milestone history (m1–m4), tag-per-milestone
 ├── Makefile                      # `make install` → bin/* to ~/.local/bin + completions (INSTALL_DIR overridable)
 ├── README.md                     # Start here — install, config sources, project.yaml shapes, failure modes

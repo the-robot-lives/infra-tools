@@ -19,9 +19,14 @@ infra-utils/
 │   ├── PROJ-HOWTO.summary.md
 │   ├── PROJ-LAYOUT.md
 │   ├── PROJ-LAYOUT.summary.md
+│   ├── PROJ-SCHEMA.md            # Config artifacts (no DB)
+│   ├── PROJ-SCHEMA.summary.md
+│   ├── THREAT-MODEL.md           # Threat model (attack surface, register)
+│   ├── THREAT-MODEL.summary.md
 │   ├── arch/scripts.md           # Per-script details
 │   ├── faq/                      # Expanded FAQ answers
 │   └── howto/                    # Expanded task guides
+├── .meta/                        # Doc-pointer store
 ├── .gitignore
 ├── CHANGELOG.md                  # Milestone history (m1–m4)
 ├── Makefile                      # make install (scripts + completions)

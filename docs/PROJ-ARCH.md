@@ -102,8 +102,9 @@ discoverable by `helm-upgrade` (`paths.helm_dir` / `helm_scan_dirs` / `chart_pat
 
 ## Documentation Suite
 
-`docs/` follows the four-doc convention: ARCH (this file + `arch/scripts.md` per-script
+`docs/` follows the doc-suite convention: ARCH (this file + `arch/scripts.md` per-script
 detail), LAYOUT (`PROJ-LAYOUT.md` + summary), SCHEMA (`PROJ-SCHEMA.md` — config-artifact
-reference, no DB), FAQ (`PROJ-FAQ.md` + `faq/*.md` why/when/comparison answers), and
-HOWTO (`PROJ-HOWTO.md` + `howto/*.md` task guides). Summaries (`*.summary.md`) accompany
+reference, no DB), FAQ (`PROJ-FAQ.md` + `faq/*.md` why/when/comparison answers), HOWTO
+(`PROJ-HOWTO.md` + `howto/*.md` task guides), and THREAT-MODEL (`THREAT-MODEL.md` —
+attack surface, vulnerability register, residual risk). Summaries (`*.summary.md`) accompany
 each for quick agent/tool reference.

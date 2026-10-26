@@ -52,4 +52,4 @@ Common failure modes ("No project.yaml declares helm for image", "values.yaml no
 
 - `bin/` — command entrypoints
 - `completions/` — shell completions
-- `docs/` — PROJ-ARCH / PROJ-SCHEMA / PROJ-FAQ / howto / arch docs
+- `docs/` — PROJ-ARCH / PROJ-SCHEMA / PROJ-FAQ / THREAT-MODEL / howto / arch docs

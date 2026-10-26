@@ -1,5 +1,8 @@
 # Changelog — utilities/k8/infra-utils
 
+## 2026-10-26
+- Doc sweep: seeded doc pointers on 8 load-bearing files (PR #3); added `docs/THREAT-MODEL.md` (+ summary) with attack surface and vulnerability register; refreshed layout/arch docs for the new suite.
+
 ## [Unreleased]
 - Nothing pending since m4.
 
