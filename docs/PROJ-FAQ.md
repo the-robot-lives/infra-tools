@@ -1,5 +1,7 @@
 # infra-utils — FAQ
 
+<!-- 〚📁:d026943e-7c0d-5a39-bd33-f7d6bdc83272〛 PROJ-FAQ :: Why/when/comparison FAQ - failure modes and fixes -->
+
 Answers to the *why/when/compared-to-what* questions. For *what these tools are*, see
 [PROJ-ARCH.md](PROJ-ARCH.md); for *how to run them*, see [PROJ-HOWTO.md](PROJ-HOWTO.md).
 

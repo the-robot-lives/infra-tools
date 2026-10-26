@@ -1,5 +1,7 @@
 # infra-utils — How To
 
+<!-- 〚📁:4d1609de-375b-5c3f-8a55-43b6ebc939d6〛 PROJ-HOWTO :: Task how-tos - wire projects, overrides, imports, troubleshooting -->
+
 Task-oriented guides for the six `bin/` CLIs. For *what these tools are*, see
 [PROJ-ARCH.md](PROJ-ARCH.md); for *where files live*, see [PROJ-LAYOUT.md](PROJ-LAYOUT.md).
 

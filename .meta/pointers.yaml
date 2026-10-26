@@ -1,0 +1,98 @@
+---
+pointers:
+  4191ab08-ebeb-5020-8e97-c5e2a7bf0550:
+    created_at: 2026-10-26T22:00:58.397361Z
+    description: Repo layout map and installed locations
+    file_path: docs/PROJ-LAYOUT.md
+    function: PROJ-LAYOUT
+    kind: file
+    line: 3
+    locations:
+      - file_path: docs/PROJ-LAYOUT.md
+        line: 3
+    token: 𔎡𔄋𔃚𔘀
+    updated_at: 2026-10-26T22:00:58.397361Z
+  4d1609de-375b-5c3f-8a55-43b6ebc939d6:
+    created_at: 2026-10-26T22:00:58.397348Z
+    description: Task how-tos - wire projects, overrides, imports, troubleshooting
+    file_path: docs/PROJ-HOWTO.md
+    function: PROJ-HOWTO
+    kind: file
+    line: 3
+    locations:
+      - file_path: docs/PROJ-HOWTO.md
+        line: 3
+    token: 𓧛𓇪𓋾𓻆
+    updated_at: 2026-10-26T22:00:58.397348Z
+  7fbba55c-4168-5965-956b-786259c7687e:
+    created_at: 2026-10-26T22:00:58.397315Z
+    description: Repo entry point - what infra-utils is, install, and the deploy-service pipeline
+    file_path: README.md
+    function: README
+    kind: file
+    line: 3
+    locations:
+      - file_path: README.md
+        line: 3
+    token: 𓄘𓢟𓚦𓎾
+    updated_at: 2026-10-26T22:00:58.397315Z
+  a2ad7525-a415-526b-963f-808a328f8355:
+    created_at: 2026-10-26T22:00:58.397345Z
+    description: Agent conventions - worktree/branch rules and monorepo pointers
+    file_path: CLAUDE.md
+    function: CLAUDE
+    kind: file
+    line: 3
+    locations:
+      - file_path: CLAUDE.md
+        line: 3
+    token: 𓛣𓰍𓭳𓤕
+    updated_at: 2026-10-26T22:00:58.397345Z
+  af6a7a52-00a1-5635-9516-7e11c3afd8c8:
+    created_at: 2026-10-26T22:00:58.397364Z
+    description: Config-artifact schema reference - no persistence layer
+    file_path: docs/PROJ-SCHEMA.md
+    function: PROJ-SCHEMA
+    kind: file
+    line: 3
+    locations:
+      - file_path: docs/PROJ-SCHEMA.md
+        line: 3
+    token: 𔏺𔅨𓡸𓌨
+    updated_at: 2026-10-26T22:00:58.397364Z
+  cd91793b-7d13-5c81-a905-a398f9865780:
+    created_at: 2026-10-26T22:00:58.397355Z
+    description: Per-script architecture and command reference
+    file_path: docs/arch/scripts.md
+    function: arch-scripts
+    kind: file
+    line: 3
+    locations:
+      - file_path: docs/arch/scripts.md
+        line: 3
+    token: 𓹈𓭾𓝀𓒐
+    updated_at: 2026-10-26T22:00:58.397355Z
+  d026943e-7c0d-5a39-bd33-f7d6bdc83272:
+    created_at: 2026-10-26T22:00:58.397352Z
+    description: Why/when/comparison FAQ - failure modes and fixes
+    file_path: docs/PROJ-FAQ.md
+    function: PROJ-FAQ
+    kind: file
+    line: 3
+    locations:
+      - file_path: docs/PROJ-FAQ.md
+        line: 3
+    token: 𓱢𓝲𓧵𓹒
+    updated_at: 2026-10-26T22:00:58.397352Z
+  ec51fbcd-2e90-5920-ae4c-510bb8bb3f4f:
+    created_at: 2026-10-26T22:00:58.397335Z
+    description: Architecture overview - components, deploy pipeline, key decisions
+    file_path: docs/PROJ-ARCH.md
+    function: PROJ-ARCH
+    kind: file
+    line: 3
+    locations:
+      - file_path: docs/PROJ-ARCH.md
+        line: 3
+    token: 𓒆𓤥𓧸𔓟
+    updated_at: 2026-10-26T22:00:58.397335Z

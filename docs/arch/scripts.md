@@ -1,5 +1,7 @@
 # Script Reference
 
+<!-- 〚📁:cd91793b-7d13-5c81-a905-a398f9865780〛 arch-scripts :: Per-script architecture and command reference -->
+
 ## bin/deploy-service
 
 Headless release pipeline: build → multi-arch push → values.yaml bump → helm upgrade.

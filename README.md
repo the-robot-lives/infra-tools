@@ -1,5 +1,7 @@
 # infra-utils
 
+<!-- 〚📁:7fbba55c-4168-5965-956b-786259c7687e〛 README :: Repo entry point - what infra-utils is, install, and the deploy-service pipeline -->
+
 **Repo:** https://github.com/the-robot-lives/infra-tools
 
 Infrastructure bootstrap helpers plus the `deploy-service` release pipeline: build an image, push it, bump Helm values, deploy the release.
